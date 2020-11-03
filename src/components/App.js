@@ -15,7 +15,7 @@ class App extends React.Component {
         </header>
         <footer className="footer">
           <small className="footer__copy">
-            Div_as profile-cards &copy; 2020
+            {"<Div_as>"} profile-cards &copy; 2020
           </small>
           <img
             className="footer__logo"
