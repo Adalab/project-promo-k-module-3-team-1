@@ -1,19 +1,19 @@
-import React from 'react';
-import Header from './Header';
-import Footer from './Footer';
-import PreviewCard from './PreviewCard';
-import Form from './Form';
+import React from "react";
+import Header from "./Header";
+import Footer from "./Footer";
+import PreviewCard from "./PreviewCard";
+import Form from "./Form";
 
-import '../stylesheets/App.scss';
+import "../stylesheets/App.scss";
 
 const data = {
-  name: 'Marga',
-  job: '',
-  phone: '',
-  email: '',
-  linkedin: '',
-  github: '',
-  photo: '',
+  name: "Marga",
+  job: "",
+  phone: "",
+  email: "",
+  linkedin: "",
+  github: "",
+  photo: "",
   palette: 1,
 };
 
@@ -35,7 +35,7 @@ class App extends React.Component {
             // palette={data.palette}
             ></PreviewCard>
           </section>
-          <section class="main-all__photo main-photo__design">
+          <section className="main-all__photo main-photo__design">
             <Form></Form>
           </section>
         </main>

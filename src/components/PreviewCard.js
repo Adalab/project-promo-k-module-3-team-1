@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import '../stylesheets/layout/_design-design.scss';
-import background1 from '../images/Fondo.jpg';
-import background2 from '../images/MM.jpg';
+import React from "react";
+import PropTypes from "prop-types";
+import "../stylesheets/layout/_design-design.scss";
+import background1 from "../images/Fondo.jpg";
+import background2 from "../images/MM.jpg";
 
 class PreviewCard extends React.Component {
   render() {
@@ -13,7 +13,7 @@ class PreviewCard extends React.Component {
       >
         <div className="main__reset js-reset">
           <i className="far fa-trash-alt main__reset--trash"></i>
-          <a className="main__reset--button" href="#">
+          <a className="main__reset--button" href="./">
             Reset
           </a>
         </div>
@@ -38,6 +38,7 @@ class PreviewCard extends React.Component {
               href={this.props.phone}
               className="js-icon-phone js-telephone"
               target="_blank"
+              rel="noreferrer"
               title="Teléfono"
             >
               <i className="icons js-icons fas fa-mobile-alt"></i>
@@ -46,6 +47,7 @@ class PreviewCard extends React.Component {
               href={this.props.email}
               className="js-icon-mail js-email"
               target="_blank"
+              rel="noreferrer"
               title="Email"
             >
               <i className="icons js-icons far fa-envelope"></i>
@@ -54,6 +56,7 @@ class PreviewCard extends React.Component {
               href={this.props.linkedin}
               className="js-icon-linkedin js-linkedin"
               target="_blank"
+              rel="noreferrer"
               title="Linkedin"
             >
               <i className="icons js-icons fab fa-linkedin-in"></i>
@@ -62,6 +65,7 @@ class PreviewCard extends React.Component {
               href={this.props.github}
               className="js-icon-github js-github"
               target="_blank"
+              rel="noreferrer"
               title="Github"
             >
               <i className="icons js-icons fab fa-github-alt"></i>
@@ -74,8 +78,8 @@ class PreviewCard extends React.Component {
 }
 
 PreviewCard.defaultProps = {
-  name: 'Marilyn Monroe',
-  job: 'Actress',
+  name: "Marilyn Monroe",
+  job: "Actress",
   photo: background2,
 };
 
