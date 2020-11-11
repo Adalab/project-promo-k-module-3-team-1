@@ -15,7 +15,7 @@ class Form extends React.Component {
           sectionClass="design"
           id="1"
           title="Diseña"
-          icon="fa-object-ungroup"
+          icon="far fa-object-ungroup"
         >
           <div className="design__palette transition js-form-palette js-form">
             <h3 className="design__palette-title">Colores</h3>
@@ -32,7 +32,7 @@ class Form extends React.Component {
           sectionClass="fill"
           id="2"
           title="Rellena"
-          icon="fa-keyboard"
+          icon="far fa-keyboard"
         >
           <form className="fill__form js-form-fill js-form" action="GET">
             <Input
@@ -106,7 +106,7 @@ class Form extends React.Component {
           sectionClass="share"
           id="3"
           title="Comparte"
-          icon="fa-share-alt"
+          icon="fas fa-share-alt"
         >
           <div className="js-form-card js-form">
             <form className="create-card hover js-button-created">
