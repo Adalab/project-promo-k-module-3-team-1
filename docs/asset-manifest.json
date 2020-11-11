@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "./static/css/main.10595b7e.chunk.css",
+    "main.js": "./static/js/main.56ad6ccf.chunk.js",
+    "main.js.map": "./static/js/main.56ad6ccf.chunk.js.map",
+    "runtime-main.js": "./static/js/runtime-main.b8c3da3d.js",
+    "runtime-main.js.map": "./static/js/runtime-main.b8c3da3d.js.map",
+    "static/js/2.fb2cc663.chunk.js": "./static/js/2.fb2cc663.chunk.js",
+    "static/js/2.fb2cc663.chunk.js.map": "./static/js/2.fb2cc663.chunk.js.map",
+    "static/js/3.c80ce01b.chunk.js": "./static/js/3.c80ce01b.chunk.js",
+    "static/js/3.c80ce01b.chunk.js.map": "./static/js/3.c80ce01b.chunk.js.map",
+    "index.html": "./index.html",
+    "static/css/main.10595b7e.chunk.css.map": "./static/css/main.10595b7e.chunk.css.map",
+    "static/js/2.fb2cc663.chunk.js.LICENSE.txt": "./static/js/2.fb2cc663.chunk.js.LICENSE.txt",
+    "static/media/Fondo.8be35409.jpg": "./static/media/Fondo.8be35409.jpg",
+    "static/media/MM.1a2a6206.jpg": "./static/media/MM.1a2a6206.jpg",
+    "static/media/divas-cards.2e6f7106.png": "./static/media/divas-cards.2e6f7106.png",
+    "static/media/logo.41fc367e.png": "./static/media/logo.41fc367e.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b8c3da3d.js",
+    "static/js/2.fb2cc663.chunk.js",
+    "static/css/main.10595b7e.chunk.css",
+    "static/js/main.56ad6ccf.chunk.js"
+  ]
+}
