@@ -1,10 +1,10 @@
 import React from "react";
 
 class Input extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {};
+  // }
   render() {
     return (
       <>
@@ -20,6 +20,8 @@ class Input extends React.Component {
           type={this.props.type}
           name={this.props.for_id_name}
           placeholder={this.props.placeholder}
+          value={this.props.value}
+          onBlur={this.props.handleChange}
         />
       </>
     );

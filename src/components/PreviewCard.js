@@ -84,16 +84,14 @@ PreviewCard.defaultProps = {
 };
 
 PreviewCard.propTypes = {
-  data: PropTypes.shape({
-    name: PropTypes.string,
-    job: PropTypes.string,
-    phone: PropTypes.number,
-    // email: PropTypes.string,
-    // linkedin: PropTypes.string,
-    // github: PropTypes.string,
-    // photo: background2,
-    // palette: PropTypes.string,
-  }),
+  name: PropTypes.string,
+  job: PropTypes.string,
+  phone: PropTypes.number,
+  email: PropTypes.string,
+  linkedin: PropTypes.string,
+  github: PropTypes.string,
+  photo: background2,
+  palette: PropTypes.string,
 };
 
 export default PreviewCard;

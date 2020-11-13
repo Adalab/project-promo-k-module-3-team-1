@@ -5,7 +5,6 @@ import "../stylesheets/layout/_design-share.scss";
 import "../stylesheets/layout/_api.scss";
 import Collapsible from "./Collapsible";
 import Input from "./Input";
-import { Component } from "react/cjs/react.production.min";
 
 class Form extends React.Component {
   render() {
@@ -33,6 +32,7 @@ class Form extends React.Component {
           id="2"
           title="Rellena"
           icon="far fa-keyboard"
+          // valores={this.props.inputValue}
         >
           <form className="fill__form js-form-fill js-form" action="GET">
             <Input
@@ -40,7 +40,9 @@ class Form extends React.Component {
               for_id_name="name"
               classLabel="fill__name"
               type="text"
+              // value={this.props.valores.name}
               placeholder="Ej: Marilyn Monroe"
+              handleChange={this.props.handleChange}
             ></Input>
             <Input
               labelTitle="Puesto"
@@ -48,6 +50,8 @@ class Form extends React.Component {
               classLabel="fill__job"
               type="text"
               placeholder="Ej: Diva Developer"
+              // value={this.props.valores.job}
+              handleChange={this.props.handleChange}
             ></Input>
             <Input
               labelTitle="Email"
@@ -55,6 +59,8 @@ class Form extends React.Component {
               classLabel="fill__email"
               type="email"
               placeholder="Ej: marilyn-monroe@gmail.com"
+              // value={this.props.valores.email}
+              handleChange={this.props.handleChange}
             ></Input>
             {/* {Component img} */}
             <label className="label fill__img" htmlFor="text">
@@ -84,6 +90,8 @@ class Form extends React.Component {
               classLabel="fill__tel"
               type="tel"
               placeholder="Ej: 555-55-55-55"
+              // value={this.props.valores.phone}
+              handleChange={this.props.handleChange}
             ></Input>
             <Input
               labelTitle="Linkedin"
@@ -91,6 +99,8 @@ class Form extends React.Component {
               classLabel="fill__linkedin"
               type="text"
               placeholder="Ej: hollywood.monroe"
+              // value={this.props.valores.linkedin}
+              handleChange={this.props.handleChange}
             ></Input>
             <Input
               labelTitle="Github"
@@ -98,6 +108,8 @@ class Form extends React.Component {
               classLabel="fill__github"
               type="text"
               placeholder="Ej: diva-monroe"
+              // value={this.props.valores.github}
+              handleChange={this.props.handleChange}
             ></Input>
           </form>
         </Collapsible>
