@@ -8,10 +8,7 @@ class Input extends React.Component {
   render() {
     return (
       <>
-        <label
-          htmlFor={this.props.for_id_name}
-          className={`label ${this.props.classLabel}`}
-        >
+        <label htmlFor={this.props.for_id_name} className={`label ${this.props.classLabel}`}>
           {this.props.labelTitle}
         </label>
         <input
@@ -21,7 +18,7 @@ class Input extends React.Component {
           name={this.props.for_id_name}
           placeholder={this.props.placeholder}
           value={this.props.value}
-          onBlur={this.props.handleChange}
+          onChange={this.props.handleChange}
         />
       </>
     );

@@ -14,7 +14,8 @@ class App extends React.Component {
       palette: 1,
       name: "",
       job: "",
-      photo: background2,
+      phone: "",
+      photo: "",
       email: "",
       linkedin: "",
       github: "",
@@ -22,15 +23,35 @@ class App extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
   handleChange(ev) {
+    /*//
+    const obj = {
+      job: 'Developer'
+    }
+    //
+    const obj = {};
+    obj['job']='developer';
+    //
+    const obj = {};
+    const objKey = 'job'
+    obj[objKey]='developer';
+    //
+    const objKey = 'job'
+    const obj = {
+      [objKey]: value
+    };
+    //
+    this.setState(obj)*/
+
     console.log("change", ev.currentTarget.id);
     console.log("change", ev.currentTarget.value);
 
-    // const atrib = ev.currentTarget.name;
-    // const value = ev.currentTarget.value;
-    // this.setState((prevState)=>{
-    //     return {atrib: value}
-
-    // })
+    const atrib = ev.currentTarget.id;
+    const value = ev.currentTarget.value;
+    this.setState(() => {
+      return {
+        [atrib]: value,
+      };
+    });
   }
   render() {
     return (
@@ -59,7 +80,7 @@ class App extends React.Component {
               github={this.state.github}
               photo={this.state.photo}
               palette={this.state.palette}
-              inputValue={this.state}
+              // inputValue={this.state}
               handleChange={this.handleChange}
             ></Form>
           </section>

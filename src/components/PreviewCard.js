@@ -7,10 +7,7 @@ import background2 from "../images/MM.jpg";
 class PreviewCard extends React.Component {
   render() {
     return (
-      <section
-        className="main"
-        style={{ backgroundImage: `url(${background1})` }}
-      >
+      <section className="main" style={{ backgroundImage: `url(${background1})` }}>
         <div className="main__reset js-reset">
           <i className="far fa-trash-alt main__reset--trash"></i>
           <a className="main__reset--button" href="./">
@@ -20,16 +17,14 @@ class PreviewCard extends React.Component {
 
         <section className="main__photo js-card-container">
           <div className="main__photo--title js-title">
-            <h4 className="name js-name">{this.props.name}</h4>
-            <p className="description js-description js-job">
-              {this.props.job}
-            </p>
+            <h4 className="name js-name">{this.props.name || "Marilyn Monroe"}</h4>
+            <p className="description js-description js-job">{this.props.job || "Actress"}</p>
           </div>
           <div className="main__photo--photo">
             <div
               className="profile__image js__profile-image"
               style={{
-                backgroundImage: `url(${this.props.photo})`,
+                backgroundImage: `url(${this.props.photo || background2})`,
               }}
             ></div>
           </div>

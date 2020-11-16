@@ -10,12 +10,7 @@ class Form extends React.Component {
   render() {
     return (
       <>
-        <Collapsible
-          sectionClass="design"
-          id="1"
-          title="Diseña"
-          icon="far fa-object-ungroup"
-        >
+        <Collapsible sectionClass="design" id="1" title="Diseña" icon="far fa-object-ungroup">
           <div className="design__palette transition js-form-palette js-form">
             <h3 className="design__palette-title">Colores</h3>
             <div className="design__palette-color">
@@ -40,7 +35,7 @@ class Form extends React.Component {
               for_id_name="name"
               classLabel="fill__name"
               type="text"
-              // value={this.props.valores.name}
+              value={this.props.name}
               placeholder="Ej: Marilyn Monroe"
               handleChange={this.props.handleChange}
             ></Input>
@@ -50,7 +45,7 @@ class Form extends React.Component {
               classLabel="fill__job"
               type="text"
               placeholder="Ej: Diva Developer"
-              // value={this.props.valores.job}
+              value={this.props.job}
               handleChange={this.props.handleChange}
             ></Input>
             <Input
@@ -59,7 +54,7 @@ class Form extends React.Component {
               classLabel="fill__email"
               type="email"
               placeholder="Ej: marilyn-monroe@gmail.com"
-              // value={this.props.valores.email}
+              value={this.props.email}
               handleChange={this.props.handleChange}
             ></Input>
             {/* {Component img} */}
@@ -67,10 +62,7 @@ class Form extends React.Component {
               Imagen de perfil
             </label>
             <div className="action">
-              <button
-                className="action__upload-btn js__profile-trigger"
-                type="button"
-              >
+              <button className="action__upload-btn js__profile-trigger" type="button">
                 Añadir imagen
               </button>
               <input
@@ -90,7 +82,7 @@ class Form extends React.Component {
               classLabel="fill__tel"
               type="tel"
               placeholder="Ej: 555-55-55-55"
-              // value={this.props.valores.phone}
+              value={this.props.phone}
               handleChange={this.props.handleChange}
             ></Input>
             <Input
@@ -99,7 +91,7 @@ class Form extends React.Component {
               classLabel="fill__linkedin"
               type="text"
               placeholder="Ej: hollywood.monroe"
-              // value={this.props.valores.linkedin}
+              value={this.props.linkedin}
               handleChange={this.props.handleChange}
             ></Input>
             <Input
@@ -108,18 +100,13 @@ class Form extends React.Component {
               classLabel="fill__github"
               type="text"
               placeholder="Ej: diva-monroe"
-              // value={this.props.valores.github}
+              value={this.props.github}
               handleChange={this.props.handleChange}
             ></Input>
           </form>
         </Collapsible>
         {/* Share */}
-        <Collapsible
-          sectionClass="share"
-          id="3"
-          title="Comparte"
-          icon="fas fa-share-alt"
-        >
+        <Collapsible sectionClass="share" id="3" title="Comparte" icon="fas fa-share-alt">
           <div className="js-form-card js-form">
             <form className="create-card hover js-button-created">
               <i className="far fa-address-card created-card__button-icon"></i>
@@ -132,9 +119,7 @@ class Form extends React.Component {
           </div>
           <div className="card js-card card__hidden">
             <div className="card__created js-form-created">
-              <h2 className="card__created-title">
-                La tarjeta ha sido creada:
-              </h2>
+              <h2 className="card__created-title">La tarjeta ha sido creada:</h2>
               <p className="card__created-link js-card-link"></p>
               <a
                 href="./"
