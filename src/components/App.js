@@ -15,13 +15,27 @@ class App extends React.Component {
       name: '',
       job: '',
       phone: '',
-      photo: '',
+      photo: {
+        url: '',
+        isAvatarDefault: false,
+      },
       email: '',
       linkedin: '',
       github: '',
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleReset = this.handleReset.bind(this);
+    this.updateAvatar = this.updateAvatar.bind(this);
+  }
+
+  updateAvatar(img) {
+    const { photo } = this.state;
+    this.setState(() => {
+      const newPhoto = { ...photo, url: img, isAvatarDefault: false };
+      return {
+        photo: newPhoto,
+      };
+    });
   }
 
   handleReset() {
@@ -83,7 +97,7 @@ class App extends React.Component {
               email={this.state.email}
               linkedin={this.state.linkedin}
               github={this.state.github}
-              photo={this.state.photo}
+              photo={this.state.photo.url}
               palette={this.state.palette}
               handleReset={this.handleReset}
             ></PreviewCard>
@@ -100,6 +114,7 @@ class App extends React.Component {
               palette={this.state.palette}
               // inputValue={this.state}
               handleChange={this.handleChange}
+              updateAvatar={this.updateAvatar}
             ></Form>
           </section>
         </main>

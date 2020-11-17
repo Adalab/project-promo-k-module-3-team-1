@@ -1,16 +1,22 @@
-import React from "react";
-import "../stylesheets/layout/_form.scss";
-import "../stylesheets/layout/_design-form.scss";
-import "../stylesheets/layout/_design-share.scss";
-import "../stylesheets/layout/_api.scss";
-import Collapsible from "./Collapsible";
-import Input from "./Input";
+import React from 'react';
+import '../stylesheets/layout/_form.scss';
+import '../stylesheets/layout/_design-form.scss';
+import '../stylesheets/layout/_design-share.scss';
+import '../stylesheets/layout/_api.scss';
+import Collapsible from './Collapsible';
+import Input from './Input';
+import GetAvatar from './GetAvatar';
 
 class Form extends React.Component {
   render() {
     return (
       <>
-        <Collapsible sectionClass="design" id="1" title="Diseña" icon="far fa-object-ungroup">
+        <Collapsible
+          sectionClass="design"
+          id="1"
+          title="Diseña"
+          icon="far fa-object-ungroup"
+        >
           <div className="design__palette transition js-form-palette js-form">
             <h3 className="design__palette-title">Colores</h3>
             <div className="design__palette-color">
@@ -58,10 +64,15 @@ class Form extends React.Component {
               handleChange={this.props.handleChange}
             ></Input>
             {/* {Component img} */}
+
             <label className="label fill__img" htmlFor="text">
               Imagen de perfil
             </label>
-            <div className="action">
+            <GetAvatar
+              updateAvatar={this.props.updateAvatar}
+              photo={this.props.photo}
+            />
+            {/* <div className="action">
               <button className="action__upload-btn js__profile-trigger" type="button">
                 Añadir imagen
               </button>
@@ -74,7 +85,7 @@ class Form extends React.Component {
               <div className="profile">
                 <div className="profile__preview js__profile-preview"></div>
               </div>
-            </div>
+            </div> */}
 
             <Input
               labelTitle="Teléfono"
@@ -106,7 +117,12 @@ class Form extends React.Component {
           </form>
         </Collapsible>
         {/* Share */}
-        <Collapsible sectionClass="share" id="3" title="Comparte" icon="fas fa-share-alt">
+        <Collapsible
+          sectionClass="share"
+          id="3"
+          title="Comparte"
+          icon="fas fa-share-alt"
+        >
           <div className="js-form-card js-form">
             <form className="create-card hover js-button-created">
               <i className="far fa-address-card created-card__button-icon"></i>
@@ -119,7 +135,9 @@ class Form extends React.Component {
           </div>
           <div className="card js-card card__hidden">
             <div className="card__created js-form-created">
-              <h2 className="card__created-title">La tarjeta ha sido creada:</h2>
+              <h2 className="card__created-title">
+                La tarjeta ha sido creada:
+              </h2>
               <p className="card__created-link js-card-link"></p>
               <a
                 href="./"
