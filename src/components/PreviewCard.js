@@ -1,24 +1,33 @@
-import React from "react";
-import PropTypes from "prop-types";
-import "../stylesheets/layout/_design-design.scss";
-import background1 from "../images/Fondo.jpg";
-import background2 from "../images/MM.jpg";
+import React from 'react';
+import PropTypes from 'prop-types';
+import '../stylesheets/layout/_design-design.scss';
+import background1 from '../images/Fondo.jpg';
+import background2 from '../images/MM.jpg';
+import Reset from './Reset';
 
 class PreviewCard extends React.Component {
   render() {
     return (
-      <section className="main" style={{ backgroundImage: `url(${background1})` }}>
-        <div className="main__reset js-reset">
+      <section
+        className="main"
+        style={{ backgroundImage: `url(${background1})` }}
+      >
+        <Reset handleReset={this.props.handleReset} />
+        {/* <div className="main__reset js-reset">
           <i className="far fa-trash-alt main__reset--trash"></i>
           <a className="main__reset--button" href="./">
             Reset
           </a>
-        </div>
+        </div> */}
 
         <section className="main__photo js-card-container">
           <div className="main__photo--title js-title">
-            <h4 className="name js-name">{this.props.name || "Marilyn Monroe"}</h4>
-            <p className="description js-description js-job">{this.props.job || "Actress"}</p>
+            <h4 className="name js-name">
+              {this.props.name || 'Marilyn Monroe'}
+            </h4>
+            <p className="description js-description js-job">
+              {this.props.job || 'Actress'}
+            </p>
           </div>
           <div className="main__photo--photo">
             <div
@@ -73,8 +82,8 @@ class PreviewCard extends React.Component {
 }
 
 PreviewCard.defaultProps = {
-  name: "Marilyn Monroe",
-  job: "Actress",
+  name: 'Marilyn Monroe',
+  job: 'Actress',
   photo: background2,
 };
 

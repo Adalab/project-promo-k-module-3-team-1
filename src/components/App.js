@@ -1,27 +1,44 @@
-import React from "react";
-import Header from "./Header";
-import Footer from "./Footer";
-import PreviewCard from "./PreviewCard";
-import Form from "./Form";
-import background2 from "../images/MM.jpg";
+import React from 'react';
+import Header from './Header';
+import Footer from './Footer';
+import PreviewCard from './PreviewCard';
+import Form from './Form';
+import background2 from '../images/MM.jpg';
 
-import "../stylesheets/App.scss";
+import '../stylesheets/App.scss';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       palette: 1,
-      name: "",
-      job: "",
-      phone: "",
-      photo: "",
-      email: "",
-      linkedin: "",
-      github: "",
+      name: '',
+      job: '',
+      phone: '',
+      photo: '',
+      email: '',
+      linkedin: '',
+      github: '',
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleReset = this.handleReset.bind(this);
   }
+
+  handleReset() {
+    this.setState(() => {
+      return {
+        palette: 1,
+        name: '',
+        job: '',
+        phone: '',
+        photo: '',
+        email: '',
+        linkedin: '',
+        github: '',
+      };
+    });
+  }
+
   handleChange(ev) {
     /*//
     const obj = {
@@ -42,8 +59,8 @@ class App extends React.Component {
     //
     this.setState(obj)*/
 
-    console.log("change", ev.currentTarget.id);
-    console.log("change", ev.currentTarget.value);
+    console.log('change', ev.currentTarget.id);
+    console.log('change', ev.currentTarget.value);
 
     const atrib = ev.currentTarget.id;
     const value = ev.currentTarget.value;
@@ -68,6 +85,7 @@ class App extends React.Component {
               github={this.state.github}
               photo={this.state.photo}
               palette={this.state.palette}
+              handleReset={this.handleReset}
             ></PreviewCard>
           </section>
           <section className="main-all__photo main-photo__design">

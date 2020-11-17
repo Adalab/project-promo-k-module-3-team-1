@@ -1,27 +1,29 @@
-import React from "react";
+import React from 'react';
 
 class Collapsible extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isClosed: true
+      isClosed: true,
     };
     this.handleClick = this.handleClick.bind(this);
   }
-  handleClick(){
+  handleClick() {
     this.setState((prevState) => {
-      return{isClosed: !prevState.isClosed}
-    })
+      return { isClosed: !prevState.isClosed };
+    });
   }
- 
+
   render() {
-    const hiddenClass = this.state.isClosed ? "hidden" : "";
+    const hiddenClass = this.state.isClosed ? 'hidden' : '';
+    const rotateClass = this.state.isClosed ? '' : 'icon-up-move';
+
     return (
       <section className={this.props.sectionClass} key={this.props.id}>
         <div
           className="design__title js-form-title1 border-title"
           id={this.props.id}
-          onClick = {this.handleClick}
+          onClick={this.handleClick}
         >
           <div className="design__title-container" id={this.props.id}>
             <i
@@ -34,7 +36,7 @@ class Collapsible extends React.Component {
           </div>
           <div className="design__down-up" id={this.props.id}>
             <i
-              className="far fa-gem icon-up js-arrow-up"
+              className={`far fa-gem icon-up js-arrow-up ${rotateClass}`}
               id={this.props.id}
             ></i>
           </div>
