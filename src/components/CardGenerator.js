@@ -24,7 +24,52 @@ class CardGenerator extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleReset = this.handleReset.bind(this);
     this.updateAvatar = this.updateAvatar.bind(this);
+    this.setLocalStorage = this.setLocalStorage.bind(this);
+    this.getLocalStorage = this.getLocalStorage.bind(this);
   }
+  componentDidMount(){
+    console.log("entro en didmount");
+    this.getLocalStorage("data")
+  }
+
+  componentDidUpdate(){
+    console.log("entro en didupdate");
+    this.setLocalStorage()
+  } 
+
+  setLocalStorage(){
+    const data = {
+      palette: this.state.palette,
+      name: this.state.name,
+      job: this.state.job,
+      phone: this.state.phone,
+      photo: this.state.photo.url,
+      email: this.state.email,
+      linkedin: this.state.linkedin,
+      github: this.state.github
+    };
+    localStorage.setItem("data", JSON.stringify(data));
+  }
+
+  getLocalStorage(){
+    if(localStorage.getItem("data")){
+      const data = JSON.parse(localStorage.getItem("data"));
+      this.setState({
+        palette: data.palette,
+        name: data.name,
+        job: data.job,
+        phone: data.phone,
+        photo: {
+          url: data.photo,
+        },
+        email: data.email,
+        linkedin: data.linkedin,
+        github: data.github
+      })
+    }
+  }
+
+  
 
   updateAvatar(img) {
     const { photo } = this.state;

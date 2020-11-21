@@ -2,6 +2,7 @@ import React from "react";
 import Collapsible from "./Collapsible";
 import Input from "./Input";
 import GetAvatar from "./GetAvatar";
+import Palettes from "./Palettes";
 
 class Form extends React.Component {
   render() {
@@ -17,7 +18,7 @@ class Form extends React.Component {
             <h3 className="design__palette-title">Colores</h3>
             <div className="design__palette-color">
               <form action="#" className="js-palettes">
-                {/* <!-- asociado a JS --> */}
+                <Palettes />
               </form>
             </div>
           </div>
