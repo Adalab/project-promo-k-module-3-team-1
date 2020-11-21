@@ -24,6 +24,7 @@ class CardGenerator extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleReset = this.handleReset.bind(this);
     this.updateAvatar = this.updateAvatar.bind(this);
+    this.handlePalette = this.handlePalette.bind(this);
     this.setLocalStorage = this.setLocalStorage.bind(this);
     this.getLocalStorage = this.getLocalStorage.bind(this);
   }
@@ -96,6 +97,12 @@ class CardGenerator extends React.Component {
     });
   }
 
+  handlePalette(value){
+    this.setState({
+     palette: value
+     })
+  }
+
   handleChange(ev) {
     /*//
     const obj = {
@@ -158,6 +165,7 @@ class CardGenerator extends React.Component {
               // inputValue={this.state}
               handleChange={this.handleChange}
               updateAvatar={this.updateAvatar}
+              handlePalette={this.handlePalette}
             ></Form>
           </section>
         </main>

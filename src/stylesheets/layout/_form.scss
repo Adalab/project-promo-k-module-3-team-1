@@ -1,9 +1,6 @@
 @import "../core/variables";
 
-.design__palette {
-  display: flex;
-  justify-content: space-between;
-}
+
 .design__palette-title {
   color: $color-button;
   font-size: 14px;
@@ -12,10 +9,8 @@
   text-transform: uppercase;
 }
 
-.design__palette-color {
-  margin-top: 28px;
-}
-.desing__palette {
+
+.design__palette {
   width: 281px;
   margin: auto;
   display: flex;
@@ -27,7 +22,7 @@
   }
 }
 
-.desing__palette-color {
+.design__palette-color {
   margin-top: 28px;
   display: flex;
 }

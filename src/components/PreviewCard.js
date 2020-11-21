@@ -5,7 +5,12 @@ import background2 from "../images/MM.jpg";
 import Reset from "./Reset";
 
 class PreviewCard extends React.Component {
+ 
   render() {
+    let color = "";
+    if (this.props.palette === "0") color = "green";
+    if (this.props.palette === "1") color = "red";
+    if (this.props.palette === "2") color = "random";
     return (
       <section
         className="main"
@@ -19,7 +24,7 @@ class PreviewCard extends React.Component {
           </a>
         </div> */}
 
-        <section className="main__photo js-card-container">
+        <section className={`main__photo js-card-container js-${color}`}>
           <div className="main__photo--title js-title">
             <h4 className="name js-name">
               {this.props.name || "Marilyn Monroe"}

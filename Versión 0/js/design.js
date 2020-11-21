@@ -17,6 +17,10 @@ const card = document.querySelector(".main__photo");
 const paintPalettes = () => {
   for (let i = 0; i < palette.length; i++) {
     /* este codigo lo quiero repetido, lo meto dentro de for con += para q no se sobreesciba */
+
+    {`${ifChecked}`} 
+
+
     paletteColors.innerHTML += `<div class="design__palette-color">
   <input id=${
     palette[i]

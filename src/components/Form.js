@@ -5,6 +5,9 @@ import GetAvatar from "./GetAvatar";
 import Palettes from "./Palettes";
 
 class Form extends React.Component {
+  constructor(props){
+    super(props);
+  }
   render() {
     return (
       <>
@@ -18,7 +21,7 @@ class Form extends React.Component {
             <h3 className="design__palette-title">Colores</h3>
             <div className="design__palette-color">
               <form action="#" className="js-palettes">
-                <Palettes />
+                <Palettes handlePalette= {this.props.handlePalette} />
               </form>
             </div>
           </div>
