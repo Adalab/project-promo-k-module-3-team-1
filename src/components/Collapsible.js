@@ -17,11 +17,11 @@ class Collapsible extends React.Component {
   render() {
     const hiddenClass = this.state.isClosed ? "hidden" : "";
     const rotateClass = this.state.isClosed ? "" : "icon-up-move";
-
+    const borderClass = this.props.id === "1" ? "border-title" : "";
     return (
       <section className={this.props.sectionClass} key={this.props.id}>
         <div
-          className="design__title js-form-title1 border-title"
+          className={`design__title js-form-title1 ${borderClass}`}
           id={this.props.id}
           onClick={this.handleClick}
         >
