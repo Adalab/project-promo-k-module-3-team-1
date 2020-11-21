@@ -28,17 +28,17 @@ class CardGenerator extends React.Component {
     this.setLocalStorage = this.setLocalStorage.bind(this);
     this.getLocalStorage = this.getLocalStorage.bind(this);
   }
-  componentDidMount(){
-    console.log("entro en didmount");
-    this.getLocalStorage("data")
+  componentDidMount() {
+    // console.log("entro en didmount");
+    this.getLocalStorage("data");
   }
 
-  componentDidUpdate(){
-    console.log("entro en didupdate");
-    this.setLocalStorage()
-  } 
+  componentDidUpdate() {
+    // console.log("entro en didupdate");
+    this.setLocalStorage();
+  }
 
-  setLocalStorage(){
+  setLocalStorage() {
     const data = {
       palette: this.state.palette,
       name: this.state.name,
@@ -47,13 +47,13 @@ class CardGenerator extends React.Component {
       photo: this.state.photo.url,
       email: this.state.email,
       linkedin: this.state.linkedin,
-      github: this.state.github
+      github: this.state.github,
     };
     localStorage.setItem("data", JSON.stringify(data));
   }
 
-  getLocalStorage(){
-    if(localStorage.getItem("data")){
+  getLocalStorage() {
+    if (localStorage.getItem("data")) {
       const data = JSON.parse(localStorage.getItem("data"));
       this.setState({
         palette: data.palette,
@@ -65,12 +65,10 @@ class CardGenerator extends React.Component {
         },
         email: data.email,
         linkedin: data.linkedin,
-        github: data.github
-      })
+        github: data.github,
+      });
     }
   }
-
-  
 
   updateAvatar(img) {
     const { photo } = this.state;
@@ -97,10 +95,10 @@ class CardGenerator extends React.Component {
     });
   }
 
-  handlePalette(value){
+  handlePalette(value) {
     this.setState({
-     palette: value
-     })
+      palette: value,
+    });
   }
 
   handleChange(ev) {
