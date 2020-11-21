@@ -1,36 +1,9 @@
 @import "../core/variables";
 
-.design__title {
-  width: 100%;
+.design__palette {
   display: flex;
   justify-content: space-between;
 }
-
-.design__title-container {
-  display: flex;
-}
-
-.icon-design {
-  margin: 27px 10px 0 20px;
-  font-size: 18px;
-  color: $color-backgroun-primary;
-}
-
-.design__main-title {
-  font-size: 18px;
-  margin-top: 27px;
-  color: $color-button;
-  font-family: $font-main;
-  font-weight: 600;
-  text-transform: uppercase;
-}
-
-.icon-up {
-  color: $color-button;
-  font-size: 18px;
-  margin: 27px 30px 0 0;
-}
-
 .design__palette-title {
   color: $color-button;
   font-size: 14px;
@@ -39,89 +12,152 @@
   text-transform: uppercase;
 }
 
-.design__palette {
-  display: flex;
-  justify-content: space-between;
-}
-
 .design__palette-color {
   margin-top: 28px;
 }
-
-.green {
+.desing__palette {
+  width: 281px;
+  margin: auto;
   display: flex;
-  margin-right: 20px;
+  justify-content: space-between;
+  padding-bottom: 30px;
+
+  @media all and(min-width:768px) {
+    width: 329px;
+  }
 }
 
-.green0,
-.red0,
-.random0 {
-  width: 17px;
-  height: 17px;
-  margin-right: 10px;
-  margin-top: 4px;
-}
-
-.green__1 {
-  width: 30px;
-  height: 25px;
-  background-color: #114e4e;
-}
-
-.green__2 {
-  width: 30px;
-  height: 25px;
-  background-color: #438792;
-}
-
-.green__3 {
-  width: 30px;
-  height: 25px;
-  background-color: #a2deaf;
-}
-
-.red {
+.desing__palette-color {
+  margin-top: 28px;
   display: flex;
-  padding-top: 20px;
 }
 
-.red__1 {
-  width: 30px;
-  height: 25px;
-  background-color: #420101;
-}
+.fill__form {
+  width: 281px;
+  padding-bottom: 17px;
 
-.red__2 {
-  width: 30px;
-  height: 25px;
-  background-color: #bd1010;
+  @media all and(min-width:768px) {
+    width: 329px;
+  }
 }
-
-.red__3 {
-  width: 30px;
-  height: 25px;
-  background-color: #e95626;
+.create-card__button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  padding: 10px 5px;
 }
-
-.random {
+.create-card {
   display: flex;
-  padding-top: 20px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 220px;
+  height: 50px;
+  background-color: $color-backgroun-primary;
+  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.32);
+  border: none;
+  border-radius: 12px;
+  margin: 30px 55px 30px 51px;
+  outline-style: none;
+  padding: 0 12px;
+  &__color {
+    background-color: #d5d5d5;
+  }
+}
+.create-card:hover {
+  transform: scale(1.03);
 }
 
-.random__1 {
-  width: 30px;
-  height: 25px;
-  background-color: #3e5b65;
+.button__created-title {
+  font-size: 18px;
+  font-family: $font-main;
+  font-weight: 600;
+  color: white;
+  text-transform: uppercase;
+  margin-right: 8px;
+  /* margin: 13px 13px 13px 0px; */
+  display: flex;
 }
 
-.random__2 {
-  width: 30px;
-  height: 25px;
-  background-color: #eab052;
+.created-card__button-icon {
+  font-size: 24px;
+  margin: 20px 4px 20px 8px;
+  color: white;
 }
+// .green {
+//   display: flex;
+//   margin-right: 20px;
+// }
 
-.random__3 {
-  width: 30px;
-  height: 25px;
-  background-color: #a0c0cf;
-}
+// .green0,
+// .red0,
+// .random0 {
+//   width: 17px;
+//   height: 17px;
+//   margin-right: 10px;
+//   margin-top: 4px;
+// }
+
+// .green__1 {
+//   width: 30px;
+//   height: 25px;
+//   background-color: #114e4e;
+// }
+
+// .green__2 {
+//   width: 30px;
+//   height: 25px;
+//   background-color: #438792;
+// }
+
+// .green__3 {
+//   width: 30px;
+//   height: 25px;
+//   background-color: #a2deaf;
+// }
+
+// .red {
+//   display: flex;
+//   padding-top: 20px;
+// }
+
+// .red__1 {
+//   width: 30px;
+//   height: 25px;
+//   background-color: #420101;
+// }
+
+// .red__2 {
+//   width: 30px;
+//   height: 25px;
+//   background-color: #bd1010;
+// }
+
+// .red__3 {
+//   width: 30px;
+//   height: 25px;
+//   background-color: #e95626;
+// }
+
+// .random {
+//   display: flex;
+//   padding-top: 20px;
+// }
+
+// .random__1 {
+//   width: 30px;
+//   height: 25px;
+//   background-color: #3e5b65;
+// }
+
+// .random__2 {
+//   width: 30px;
+//   height: 25px;
+//   background-color: #eab052;
+// }
+
+// .random__3 {
+//   width: 30px;
+//   height: 25px;
+//   background-color: #a0c0cf;
+// }

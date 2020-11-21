@@ -8,7 +8,10 @@ class Input extends React.Component {
   render() {
     return (
       <>
-        <label htmlFor={this.props.for_id_name} className={`label ${this.props.classLabel}`}>
+        <label
+          htmlFor={this.props.for_id_name}
+          className={`label ${this.props.classLabel}`}
+        >
           {this.props.labelTitle}
         </label>
         <input

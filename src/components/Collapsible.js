@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 class Collapsible extends React.Component {
   constructor(props) {
@@ -15,8 +15,8 @@ class Collapsible extends React.Component {
   }
 
   render() {
-    const hiddenClass = this.state.isClosed ? 'hidden' : '';
-    const rotateClass = this.state.isClosed ? '' : 'icon-up-move';
+    const hiddenClass = this.state.isClosed ? "hidden" : "";
+    const rotateClass = this.state.isClosed ? "" : "icon-up-move";
 
     return (
       <section className={this.props.sectionClass} key={this.props.id}>

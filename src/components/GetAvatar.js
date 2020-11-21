@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
-// import './GetAvatar.css';
-import PropTypes from 'prop-types';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 class GetAvatar extends Component {
   constructor(props) {
@@ -20,7 +19,7 @@ class GetAvatar extends Component {
 
   uploadImage(e) {
     const myFile = e.currentTarget.files[0];
-    this.fr.addEventListener('load', this.getImage);
+    this.fr.addEventListener("load", this.getImage);
     this.fr.readAsDataURL(myFile);
   }
 

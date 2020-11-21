@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import logo from "../images/divas-cards.png";
-import "../stylesheets/layout/_header.scss";
 
 class Header extends React.Component {
   render() {

@@ -1,11 +1,7 @@
-import React from 'react';
-import '../stylesheets/layout/_form.scss';
-import '../stylesheets/layout/_design-form.scss';
-import '../stylesheets/layout/_design-share.scss';
-import '../stylesheets/layout/_api.scss';
-import Collapsible from './Collapsible';
-import Input from './Input';
-import GetAvatar from './GetAvatar';
+import React from "react";
+import Collapsible from "./Collapsible";
+import Input from "./Input";
+import GetAvatar from "./GetAvatar";
 
 class Form extends React.Component {
   render() {

@@ -1,7 +1,6 @@
 import React from "react";
 import divasCards from "../images/divas-cards.png";
 import Footer from "./Footer";
-import "../stylesheets/pages/_index.scss";
 import { Link } from "react-router-dom";
 
 class Landing extends React.Component {

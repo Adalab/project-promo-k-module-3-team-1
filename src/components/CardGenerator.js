@@ -5,8 +5,6 @@ import PreviewCard from "./PreviewCard";
 import Form from "./Form";
 // import background2 from "../images/MM.jpg";
 
-import "../stylesheets/App.scss";
-
 class CardGenerator extends React.Component {
   constructor(props) {
     super(props);
