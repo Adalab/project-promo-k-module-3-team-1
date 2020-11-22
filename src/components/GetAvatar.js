@@ -20,7 +20,9 @@ class GetAvatar extends Component {
   uploadImage(e) {
     const myFile = e.currentTarget.files[0];
     this.fr.addEventListener("load", this.getImage);
-    this.fr.readAsDataURL(myFile);
+    if (!!myFile) {
+      this.fr.readAsDataURL(myFile);
+    }
   }
 
   getImage() {

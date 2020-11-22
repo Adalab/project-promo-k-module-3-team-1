@@ -3,21 +3,18 @@ import React from "react";
 class Collapsible extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      isClosed: true,
-    };
+
     this.handleClick = this.handleClick.bind(this);
   }
-  handleClick() {
-    this.setState((prevState) => {
-      return { isClosed: !prevState.isClosed };
-    });
+  handleClick(ev) {
+    this.props.handleClick(ev.target.id);
   }
 
   render() {
-    const hiddenClass = this.state.isClosed ? "hidden" : "";
-    const rotateClass = this.state.isClosed ? "" : "icon-up-move";
+    const hiddenClass = this.props.toClose ? "hidden" : "";
+    const rotateClass = this.props.toClose ? "" : "icon-up-move";
     const borderClass = this.props.id === "1" ? "border-title" : "";
+
     return (
       <section className={this.props.sectionClass} key={this.props.id}>
         <div

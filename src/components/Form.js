@@ -5,13 +5,38 @@ import GetAvatar from "./GetAvatar";
 import Palettes from "./Palettes";
 
 class Form extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
+    this.state = {
+      Diseña: true,
+      Rellena: true,
+      Comparte: true,
+    };
+
+    this.handleClick = this.handleClick.bind(this);
   }
+
+  handleClick(id) {
+    switch (id) {
+      case "1":
+        this.setState({ Diseña: false, Rellena: true, Comparte: true });
+        break;
+      case "2":
+        this.setState({ Diseña: true, Rellena: false, Comparte: true });
+        break;
+      case "3":
+        this.setState({ Diseña: true, Rellena: true, Comparte: false });
+        break;
+      default:
+    }
+  }
+
   render() {
     return (
       <>
         <Collapsible
+          handleClick={this.handleClick}
+          toClose={this.state.Diseña}
           sectionClass="design"
           id="1"
           title="Diseña"
@@ -21,7 +46,7 @@ class Form extends React.Component {
             <h3 className="design__palette-title">Colores</h3>
             <div className="design__palette-color">
               <form action="#" className="js-palettes">
-                <Palettes handlePalette= {this.props.handlePalette} />
+                <Palettes handlePalette={this.props.handlePalette} />
               </form>
             </div>
           </div>
@@ -29,6 +54,8 @@ class Form extends React.Component {
 
         {/* Fill */}
         <Collapsible
+          toClose={this.state.Rellena}
+          handleClick={this.handleClick}
           sectionClass="fill"
           id="2"
           title="Rellena"
@@ -54,6 +81,15 @@ class Form extends React.Component {
               value={this.props.job}
               handleChange={this.props.handleChange}
             ></Input>
+
+            {/* {Component img} */}
+            <label className="label fill__img" htmlFor="text">
+              Imagen de perfil
+            </label>
+            <GetAvatar
+              updateAvatar={this.props.updateAvatar}
+              photo={this.props.photo}
+            />
             <Input
               labelTitle="Email"
               for_id_name="email"
@@ -63,29 +99,6 @@ class Form extends React.Component {
               value={this.props.email}
               handleChange={this.props.handleChange}
             ></Input>
-            {/* {Component img} */}
-
-            <label className="label fill__img" htmlFor="text">
-              Imagen de perfil
-            </label>
-            <GetAvatar
-              updateAvatar={this.props.updateAvatar}
-              photo={this.props.photo}
-            />
-            {/* <div className="action">
-              <button className="action__upload-btn js__profile-trigger" type="button">
-                Añadir imagen
-              </button>
-              <input
-                type="file"
-                name=""
-                id="img-selector"
-                className="action__hiddenField js__profile-upload-btn"
-              />
-              <div className="profile">
-                <div className="profile__preview js__profile-preview"></div>
-              </div>
-            </div> */}
 
             <Input
               labelTitle="Teléfono"
@@ -118,6 +131,8 @@ class Form extends React.Component {
         </Collapsible>
         {/* Share */}
         <Collapsible
+          toClose={this.state.Comparte}
+          handleClick={this.handleClick}
           sectionClass="share"
           id="3"
           title="Comparte"

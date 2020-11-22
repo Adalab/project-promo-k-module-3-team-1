@@ -5,7 +5,6 @@ import background2 from "../images/MM.jpg";
 import Reset from "./Reset";
 
 class PreviewCard extends React.Component {
- 
   render() {
     let color = "";
     if (this.props.palette === "0") color = "green";
@@ -94,12 +93,12 @@ PreviewCard.defaultProps = {
 PreviewCard.propTypes = {
   name: PropTypes.string,
   job: PropTypes.string,
-  phone: PropTypes.number,
+  phone: PropTypes.string,
   email: PropTypes.string,
   linkedin: PropTypes.string,
   github: PropTypes.string,
-  photo: background2,
-  palette: PropTypes.string,
+  photo: PropTypes.string,
+  palette: PropTypes.number,
 };
 
 export default PreviewCard;
