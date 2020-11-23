@@ -3,6 +3,7 @@ import Collapsible from "./Collapsible";
 import Input from "./Input";
 import GetAvatar from "./GetAvatar";
 import Palettes from "./Palettes";
+import ShareButton from "./ShareButton";
 
 class Form extends React.Component {
   constructor(props) {
@@ -19,13 +20,22 @@ class Form extends React.Component {
   handleClick(id) {
     switch (id) {
       case "1":
-        this.setState({ Diseña: false, Rellena: true, Comparte: true });
+        if (this.state.Diseña === false) this.setState({ Diseña: true });
+        else {
+          this.setState({ Diseña: false, Rellena: true, Comparte: true });
+        }
         break;
       case "2":
-        this.setState({ Diseña: true, Rellena: false, Comparte: true });
+        if (this.state.Rellena === false) this.setState({ Rellena: true });
+        else {
+          this.setState({ Diseña: true, Rellena: false, Comparte: true });
+        }
         break;
       case "3":
-        this.setState({ Diseña: true, Rellena: true, Comparte: false });
+        if (this.state.Comparte === false) this.setState({ Comparte: true });
+        else {
+          this.setState({ Diseña: true, Rellena: true, Comparte: false });
+        }
         break;
       default:
     }
@@ -138,16 +148,7 @@ class Form extends React.Component {
           title="Comparte"
           icon="fas fa-share-alt"
         >
-          <div className="js-form-card js-form">
-            <form className="create-card hover js-button-created">
-              <i className="far fa-address-card created-card__button-icon"></i>
-              <input
-                type="button"
-                className="create-card__button button__created-title"
-                value="Crear tarjeta"
-              />
-            </form>
-          </div>
+          <ShareButton />
           <div className="card js-card card__hidden">
             <div className="card__created js-form-created">
               <h2 className="card__created-title">
