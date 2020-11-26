@@ -15,6 +15,7 @@ class Form extends React.Component {
     };
 
     this.handleClick = this.handleClick.bind(this);
+    this.getURL = this.getURL.bind(this);
   }
 
   handleClick(id) {
@@ -41,6 +42,18 @@ class Form extends React.Component {
     }
   }
 
+               
+  
+    //     responseURL.innerHTML = `<a target="_blank" href="${result.cardURL}">Aquí tienes tu tarjeta</a>`;
+    //     const tweet =
+    //       "¡Hola! Un DIAMANTE es solo un trozo de carbón que soportó una presión extraordinaria! Para mostrarlo al mundo, las < Div_as> me han ayudado a hacer esta tarjeta 💎";
+    //     buttonTwitter.setAttribute(
+    //       "href",
+    //       `https://twitter.com/intent/tweet?text=${tweet}&url=${result.cardURL}`
+    //     );
+    //   } else {
+    //     responseURL.innerHTML = `ERROR: ${result.error}`;
+    //   }
   render() {
     return (
       <>
@@ -148,7 +161,7 @@ class Form extends React.Component {
           title="Comparte"
           icon="fas fa-share-alt"
         >
-          <ShareButton />
+          <ShareButton handleClickCreate={this.props.handleClickCreate}/>
           <div className="card js-card card__hidden">
             <div className="card__created js-form-created">
               <h2 className="card__created-title">

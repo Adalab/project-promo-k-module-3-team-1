@@ -3,6 +3,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import PreviewCard from "./PreviewCard";
 import Form from "./Form";
+import getDataFromApi from "../service/api.js";
 // import background2 from "../images/MM.jpg";
 
 class CardGenerator extends React.Component {
@@ -20,6 +21,9 @@ class CardGenerator extends React.Component {
       email: "",
       linkedin: "",
       github: "",
+      apiError: "",
+      apiCardURL: "",
+      apiSuccess: false,
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleReset = this.handleReset.bind(this);
@@ -27,6 +31,7 @@ class CardGenerator extends React.Component {
     this.handlePalette = this.handlePalette.bind(this);
     this.setLocalStorage = this.setLocalStorage.bind(this);
     this.getLocalStorage = this.getLocalStorage.bind(this);
+    this.handleClickCreate = this.handleClickCreate.bind(this);
   }
   componentDidMount() {
     // console.log("entro en didmount");
@@ -102,28 +107,6 @@ class CardGenerator extends React.Component {
   }
 
   handleChange(ev) {
-    /*//
-    const obj = {
-      job: 'Developer'
-    }
-    //
-    const obj = {};
-    obj['job']='developer';
-    //
-    const obj = {};
-    const objKey = 'job'
-    obj[objKey]='developer';
-    //
-    const objKey = 'job'
-    const obj = {
-      [objKey]: value
-    };
-    //
-    this.setState(obj)*/
-
-    // console.log("change", ev.currentTarget.id);
-    // console.log("change", ev.currentTarget.value);
-
     const atrib = ev.currentTarget.id;
     const value = ev.currentTarget.value;
     this.setState(() => {
@@ -132,6 +115,36 @@ class CardGenerator extends React.Component {
       };
     });
   }
+
+  handleClickCreate() {
+    const data = {
+      palette: this.state.palette,
+      name: this.state.name,
+      job: this.state.job,
+      phone: this.state.phone,
+      photo: this.state.photo.url,
+      email: this.state.email,
+      linkedin: this.state.linkedin,
+      github: this.state.github,
+    };
+
+    getDataFromApi(data).then((response) => {
+      if (response.success === true) {
+        this.setState({
+          apiError: "",
+          apiCardURL: response.cardURL,
+          apiSuccess: true,
+        });
+      } else {
+        this.setState({
+          apiError: response.error,
+          apiCardURL: "",
+          apiSuccess: false,
+        });
+      }
+    });
+  }
+
   render() {
     return (
       <>
@@ -164,6 +177,10 @@ class CardGenerator extends React.Component {
               handleChange={this.handleChange}
               updateAvatar={this.updateAvatar}
               handlePalette={this.handlePalette}
+              handleClickCreate={this.handleClickCreate}
+              apiError={this.state.apiError}
+              cardURL={this.state.cardURL}
+              apiSuccess={this.state.apiSuccess}
             ></Form>
           </section>
         </main>
