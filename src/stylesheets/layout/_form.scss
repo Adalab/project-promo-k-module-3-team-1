@@ -33,6 +33,14 @@
     width: 329px;
   }
 }
+
+button[disabled]{
+  background: #D4D4D4; 
+  &:hover {
+    transform: scale(1);
+  }    
+}
+
 .create-card__button {
   background-color: transparent;
   border: none;

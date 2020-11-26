@@ -121,8 +121,8 @@ class CardGenerator extends React.Component {
     //
     this.setState(obj)*/
 
-    console.log("change", ev.currentTarget.id);
-    console.log("change", ev.currentTarget.value);
+    // console.log("change", ev.currentTarget.id);
+    // console.log("change", ev.currentTarget.value);
 
     const atrib = ev.currentTarget.id;
     const value = ev.currentTarget.value;
