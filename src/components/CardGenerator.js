@@ -21,9 +21,12 @@ class CardGenerator extends React.Component {
       email: "",
       linkedin: "",
       github: "",
-      apiError: "",
-      apiCardURL: "",
-      apiSuccess: false,
+      apiObject: {
+        apiError: "",
+        apiCardURL: "",
+        apiSuccess: false,
+        apiCall: false,
+      },
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleReset = this.handleReset.bind(this);
@@ -131,15 +134,23 @@ class CardGenerator extends React.Component {
     getDataFromApi(data).then((response) => {
       if (response.success === true) {
         this.setState({
-          apiError: "",
-          apiCardURL: response.cardURL,
-          apiSuccess: true,
+          ...this.state.apiObject,
+          apiObject: {
+            apiError: "",
+            apiCardURL: response.cardURL,
+            apiSuccess: true,
+            apiCall: true,
+          },
         });
       } else {
         this.setState({
-          apiError: response.error,
-          apiCardURL: "",
-          apiSuccess: false,
+          ...this.state.apiObject,
+          apiObject: {
+            apiError: response.error,
+            apiCardURL: "",
+            apiSuccess: false,
+            apiCall: true,
+          },
         });
       }
     });
@@ -178,9 +189,7 @@ class CardGenerator extends React.Component {
               updateAvatar={this.updateAvatar}
               handlePalette={this.handlePalette}
               handleClickCreate={this.handleClickCreate}
-              apiError={this.state.apiError}
-              cardURL={this.state.cardURL}
-              apiSuccess={this.state.apiSuccess}
+              apiObject={this.state.apiObject}
             ></Form>
           </section>
         </main>

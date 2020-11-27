@@ -4,6 +4,8 @@ import Input from "./Input";
 import GetAvatar from "./GetAvatar";
 import Palettes from "./Palettes";
 import ShareButton from "./ShareButton";
+import ShareButtonTwitter from "./ShareButtonTwitter";
+import Loader from "./Loader";
 
 class Form extends React.Component {
   constructor(props) {
@@ -15,7 +17,7 @@ class Form extends React.Component {
     };
 
     this.handleClick = this.handleClick.bind(this);
-    this.getURL = this.getURL.bind(this);
+    // this.getURL = this.getURL.bind(this);
   }
 
   handleClick(id) {
@@ -42,18 +44,16 @@ class Form extends React.Component {
     }
   }
 
-               
-  
-    //     responseURL.innerHTML = `<a target="_blank" href="${result.cardURL}">Aquí tienes tu tarjeta</a>`;
-    //     const tweet =
-    //       "¡Hola! Un DIAMANTE es solo un trozo de carbón que soportó una presión extraordinaria! Para mostrarlo al mundo, las < Div_as> me han ayudado a hacer esta tarjeta 💎";
-    //     buttonTwitter.setAttribute(
-    //       "href",
-    //       `https://twitter.com/intent/tweet?text=${tweet}&url=${result.cardURL}`
-    //     );
-    //   } else {
-    //     responseURL.innerHTML = `ERROR: ${result.error}`;
-    //   }
+  //     responseURL.innerHTML = `<a target="_blank" href="${result.cardURL}">Aquí tienes tu tarjeta</a>`;
+  //     const tweet =
+  //       "¡Hola! Un DIAMANTE es solo un trozo de carbón que soportó una presión extraordinaria! Para mostrarlo al mundo, las < Div_as> me han ayudado a hacer esta tarjeta 💎";
+  //     buttonTwitter.setAttribute(
+  //       "href",
+  //       `https://twitter.com/intent/tweet?text=${tweet}&url=${result.cardURL}`
+  //     );
+  //   } else {
+  //     responseURL.innerHTML = `ERROR: ${result.error}`;
+  //   }
   render() {
     return (
       <>
@@ -161,8 +161,22 @@ class Form extends React.Component {
           title="Comparte"
           icon="fas fa-share-alt"
         >
-          <ShareButton handleClickCreate={this.props.handleClickCreate}/>
-          <div className="card js-card card__hidden">
+          <ShareButton handleClickCreate={this.props.handleClickCreate} />
+
+          {this.props.apiObject.apiSuccess && this.props.apiObject.apiCall ? (
+            <ShareButtonTwitter apiObject={this.props.apiObject} />
+          ) : (
+            <></>
+          )}
+          {!this.props.apiObject.apiSuccess && this.props.apiObject.apiCall ? (
+            <p className="card__created-link js-card-link">
+              Error: {this.props.apiObject.apiError}
+            </p>
+          ) : (
+            <></>
+          )}
+          <Loader></Loader>
+          {/* <div className="card js-card card__hidden">
             <div className="card__created js-form-created">
               <h2 className="card__created-title">
                 La tarjeta ha sido creada:
@@ -178,7 +192,7 @@ class Form extends React.Component {
                 <h3 className="button__twitter-title">Compartir en twitter</h3>
               </a>
             </div>
-          </div>
+          </div> */}
         </Collapsible>
       </>
     );

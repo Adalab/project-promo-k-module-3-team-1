@@ -1,5 +1,6 @@
 const ShareButton = (props) => {
-  const handleClick = () => {
+  const handleClick = (ev) => {
+    ev.preventDefault();
     props.handleClickCreate();
   };
   return (
