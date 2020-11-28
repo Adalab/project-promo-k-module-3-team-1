@@ -4,8 +4,8 @@ import Input from "./Input";
 import GetAvatar from "./GetAvatar";
 import Palettes from "./Palettes";
 import ShareButton from "./ShareButton";
-import ShareButtonTwitter from "./ShareButtonTwitter";
 import Loader from "./Loader";
+import API_feedback from "./API_feedback";
 
 class Form extends React.Component {
   constructor(props) {
@@ -44,16 +44,6 @@ class Form extends React.Component {
     }
   }
 
-  //     responseURL.innerHTML = `<a target="_blank" href="${result.cardURL}">Aquí tienes tu tarjeta</a>`;
-  //     const tweet =
-  //       "¡Hola! Un DIAMANTE es solo un trozo de carbón que soportó una presión extraordinaria! Para mostrarlo al mundo, las < Div_as> me han ayudado a hacer esta tarjeta 💎";
-  //     buttonTwitter.setAttribute(
-  //       "href",
-  //       `https://twitter.com/intent/tweet?text=${tweet}&url=${result.cardURL}`
-  //     );
-  //   } else {
-  //     responseURL.innerHTML = `ERROR: ${result.error}`;
-  //   }
   render() {
     return (
       <>
@@ -83,7 +73,6 @@ class Form extends React.Component {
           id="2"
           title="Rellena"
           icon="far fa-keyboard"
-          // valores={this.props.inputValue}
         >
           <form className="fill__form js-form-fill js-form" action="GET">
             <Input
@@ -161,38 +150,15 @@ class Form extends React.Component {
           title="Comparte"
           icon="fas fa-share-alt"
         >
-          <ShareButton handleClickCreate={this.props.handleClickCreate} />
-
-          {this.props.apiObject.apiSuccess && this.props.apiObject.apiCall ? (
-            <ShareButtonTwitter apiObject={this.props.apiObject} />
+          <ShareButton
+            handleClickCreate={this.props.handleClickCreate}
+            isEmpty={this.props.isEmpty}
+          />
+          {this.props.apiObject.isLoading ? (
+            <Loader />
           ) : (
-            <></>
+            <API_feedback apiObject={this.props.apiObject} />
           )}
-          {!this.props.apiObject.apiSuccess && this.props.apiObject.apiCall ? (
-            <p className="card__created-link js-card-link">
-              Error: {this.props.apiObject.apiError}
-            </p>
-          ) : (
-            <></>
-          )}
-          <Loader></Loader>
-          {/* <div className="card js-card card__hidden">
-            <div className="card__created js-form-created">
-              <h2 className="card__created-title">
-                La tarjeta ha sido creada:
-              </h2>
-              <p className="card__created-link js-card-link"></p>
-              <a
-                href="./"
-                target="_blank"
-                rel="noreferrer"
-                className="button__twitter js-button-twitter"
-              >
-                <i className="fab fa-twitter button__twitter-icon"></i>
-                <h3 className="button__twitter-title">Compartir en twitter</h3>
-              </a>
-            </div>
-          </div> */}
         </Collapsible>
       </>
     );

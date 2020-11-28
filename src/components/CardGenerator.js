@@ -4,7 +4,6 @@ import Footer from "./Footer";
 import PreviewCard from "./PreviewCard";
 import Form from "./Form";
 import getDataFromApi from "../service/api.js";
-// import background2 from "../images/MM.jpg";
 
 class CardGenerator extends React.Component {
   constructor(props) {
@@ -22,11 +21,13 @@ class CardGenerator extends React.Component {
       linkedin: "",
       github: "",
       apiObject: {
+        isLoading: false,
         apiError: "",
         apiCardURL: "",
         apiSuccess: false,
         apiCall: false,
       },
+      isEmpty: true,
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleReset = this.handleReset.bind(this);
@@ -35,10 +36,12 @@ class CardGenerator extends React.Component {
     this.setLocalStorage = this.setLocalStorage.bind(this);
     this.getLocalStorage = this.getLocalStorage.bind(this);
     this.handleClickCreate = this.handleClickCreate.bind(this);
+    this.checkForm = this.checkForm.bind(this);
   }
   componentDidMount() {
     // console.log("entro en didmount");
     this.getLocalStorage("data");
+    this.checkForm();
   }
 
   componentDidUpdate() {
@@ -99,6 +102,7 @@ class CardGenerator extends React.Component {
         email: "",
         linkedin: "",
         github: "",
+        isEmpty: true,
       };
     });
   }
@@ -108,18 +112,35 @@ class CardGenerator extends React.Component {
       palette: value,
     });
   }
+  checkForm() {
+    if (localStorage.getItem("data")) {
+      const data = JSON.parse(localStorage.getItem("data"));
 
+      let valores = Object.values(data);
+
+      const emptyItem = valores.filter((item) => {
+        return item === "";
+      });
+      console.log(emptyItem);
+      if (emptyItem.length <= 1) {
+        this.setState({ ...this.state.isEmpty, isEmpty: false });
+      }
+    }
+  }
   handleChange(ev) {
     const atrib = ev.currentTarget.id;
     const value = ev.currentTarget.value;
+    if (value === "") this.setState({ ...this.state.isEmpty, isEmpty: true });
     this.setState(() => {
       return {
         [atrib]: value,
       };
     });
+    this.checkForm();
   }
 
   handleClickCreate() {
+    this.setState({ ...this.state.apiObject, apiObject: { isLoading: true } });
     const data = {
       palette: this.state.palette,
       name: this.state.name,
@@ -130,7 +151,6 @@ class CardGenerator extends React.Component {
       linkedin: this.state.linkedin,
       github: this.state.github,
     };
-
     getDataFromApi(data).then((response) => {
       if (response.success === true) {
         this.setState({
@@ -140,6 +160,7 @@ class CardGenerator extends React.Component {
             apiCardURL: response.cardURL,
             apiSuccess: true,
             apiCall: true,
+            isLoading: false,
           },
         });
       } else {
@@ -150,6 +171,7 @@ class CardGenerator extends React.Component {
             apiCardURL: "",
             apiSuccess: false,
             apiCall: true,
+            isLoading: false,
           },
         });
       }
@@ -190,6 +212,7 @@ class CardGenerator extends React.Component {
               handlePalette={this.handlePalette}
               handleClickCreate={this.handleClickCreate}
               apiObject={this.state.apiObject}
+              isEmpty={this.state.isEmpty}
             ></Form>
           </section>
         </main>
